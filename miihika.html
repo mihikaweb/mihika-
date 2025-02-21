@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Storybook</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+
+        #story-container {
+            width: 800px; /* Adjust as needed */
+            height: 600px; /* Adjust as needed */
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0; /* Initially hide all pages */
+            transition: opacity 0.5s ease-in-out; /* Smooth fade-in/out */
+        }
+
+        .page.active {
+            opacity: 1; /* Show the active page */
+        }
+
+        .page img {
+            max-width: 90%;
+            max-height: 70%;
+            margin-bottom: 20px;
+        }
+
+        .page h2 {
+            margin-top: 0;
+        }
+
+        #controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="story-container">
+        <div class="page active">  <img src="https://th.bing.com/th/id/OIP.2gQP4cGS_k7V3oYIkcObbQHaEK?rs=1&pid=ImgDetMain">
+            <h2>Page 1: The Beginning</h2>
+            <p>Once upon a time, there was a capseller who used to go far far away form his village to sell his cap .</p>
+        </div>
+        <div class="page">
+            <img src="https://th.bing.com/th/id/OIP.KsF1f7K2Wm_ZtMRDsfNL_wHaE1?rs=1&pid=ImgDetMain" alt="https://th.bing.com/th/id/OIP.KsF1f7K2Wm_ZtMRDsfNL_wHaE1?rs=1&pid=ImgDetMain"         
+   <h2>Page 2: The Adventure</h2>
+            <p>Then,    the cap seller was tired he went down a tree and that tree was the house for monkeys and the capseller sat down there </p> 
+<p> and ate his lunch he slept down and then all the monkeys came and took capseller's hats and caps .
+        </div>
+        <div class="page">
+            <img src="https://th.bing.com/th/id/OIP.nJLu3wyA4afvOujbq-rj0wHaE1?rs=1&pid=ImgDetMain" alt="https://th.bing.com/th/id/OIP.nJLu3wyA4afvOujbq-rj0wHaE1?rs=1&pid=ImgDetMain">
+            <h2>Page 3: The Conclusion</h2>
+            <p>And then the capseller woke up he saw that all the monkeys were wereing his hats and caps </p>
+<p> so, the capseller throw few stones on them but instead the monkeys throw more stones on the capseller then the capseller noticed that the monkeys were coping him </p>
+<p> then the capseller was wereing a cap he throw his cap on the ground then all the monkeys thrown thier caps and hats on the ground  </p>
+<p> the capseller gathered all the caps and  hats and went back </p>
+
+
+
+
+
+
+<p> then the capseller lived happily ever after </p>
+        </div>
+        </div>
+
+    <div id="controls">
+        <button onclick="prevPage()">Previous Page</button>
+        <button onclick="nextPage()">Next Page</button>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(pageIndex) {
+            pages.forEach((page, index) => {
+                if (index === pageIndex) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+
+        function nextPage() {
+            currentPage = Math.min(currentPage + 1, pages.length - 1);
+            showPage(currentPage);
+        }
+
+        function prevPage() {
+            currentPage = Math.max(currentPage - 1, 0);
+            showPage(currentPage);
+        }
+
+        showPage(0); // Show the first page initially
+    </script>
+
+</body>
+</html>
